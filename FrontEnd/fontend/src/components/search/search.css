@@ -1,0 +1,41 @@
+.search-bar-container{
+ display: flex;
+ width: 100vw;
+ height: 9vh;
+ background-color: #20274D;
+ justify-content: center;
+ align-items: center;
+ gap:5px
+}
+.search-bar-container .search-Input{
+    width: 26%;
+    height: 60%;
+    border-radius: 5px;
+    padding-left: 20px;
+    font-size: 22px;
+    font-weight: 200;
+    color: gray;
+    outline: none;
+    border: none;
+}
+.search-date{
+    width: 15%;
+    height: 60%;
+    border-radius: 5px;
+    padding-left: 10px;
+    outline: none;
+    border: none;
+}
+button{
+    width: 10%;
+    height: 60%;
+    border-radius: 5px;
+    background-color: white;
+    font-weight: 600;
+}
+button:hover{
+    background-color: rgb(49, 49, 227);
+    color: white;
+    cursor: pointer;
+
+}
