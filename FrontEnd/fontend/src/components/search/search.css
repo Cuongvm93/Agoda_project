@@ -26,14 +26,14 @@
     outline: none;
     border: none;
 }
-button{
+.search-bar-containet button{
     width: 10%;
     height: 60%;
     border-radius: 5px;
     background-color: white;
     font-weight: 600;
 }
-button:hover{
+.search-bar-container button:hover{
     background-color: rgb(49, 49, 227);
     color: white;
     cursor: pointer;
