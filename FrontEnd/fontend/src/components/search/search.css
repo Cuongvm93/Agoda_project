@@ -39,3 +39,52 @@
     cursor: pointer;
 
 }
+.search-pickroom{
+    display: flex;
+    width: 15%;
+    height: 60%;
+    background-color: white;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    cursor: pointer;
+}
+.search-pickroom:hover .search-pickrooms-dropdown{ 
+    background-color: #20274D;
+}
+.search-pickrooms-dropdown{
+    width: 15%;
+    background-color:white;
+    border-radius: 7px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: absolute;
+    left: 61%;
+    transition: 0.8;
+ 
+}
+.search-pickrooms-dropdown i{
+    font-size: 23px;
+    cursor: pointer;
+
+}
+.search-numberroom{
+    display: flex;
+    justify-content: space-around;
+}
+.search-numberroom div{
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search-numberperson{
+    display: flex;
+    justify-content: space-around;
+}
+.search-numberperson div{
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

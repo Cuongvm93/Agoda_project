@@ -19,10 +19,11 @@ const disabledDate = (current) => {
   // Can not select days before today and today
   return current && current < dayjs().startOf('day');
 };
-const App = () => (
-  <Space direction="vertical" size={12}>
-    <RangePicker
+const App = ({height,width,size,weight,handelchange}) => (
+  <Space direction="vertical" size={12} style={{fontSizeAdjust:weight}}>
+    <RangePicker style={{height:height,width:width,fontSize:size, fontWeight:weight}}
       disabledDate={disabledDate}
+      onChange={handelchange}
     />
   </Space>
 );
