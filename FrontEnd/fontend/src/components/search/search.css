@@ -26,7 +26,7 @@
     outline: none;
     border: none;
 }
-button{
+/* button{
     width: 10%;
     height: 60%;
     border-radius: 5px;
@@ -38,4 +38,4 @@ button:hover{
     color: white;
     cursor: pointer;
 
-}
+} */
