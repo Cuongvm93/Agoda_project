@@ -7,7 +7,7 @@ function Footer() {
                 <div className="footer-container">
                     <div className="footer-content">
                         <div className="footer-box">
-                            <h5>Trợ giúp</h5>
+                            <h4>Trợ giúp</h4>
                             <ul>
                                 <li><p>Trung tâm trợ giúp</p></li>
                                 <li><p>Câu hỏi thường gặp</p></li>
@@ -18,7 +18,7 @@ function Footer() {
                             </ul>
                         </div>
                         <div className="footer-box">
-                            <h5>Công ty</h5>
+                            <h4>Công ty</h4>
                             <ul>
                                 <li><p>Về Chúng tôi</p></li>
                                 <li><p>Tuyển dụng</p></li>
@@ -28,14 +28,14 @@ function Footer() {
                             </ul>
                         </div>
                         <div className="footer-box">
-                            <h5>Điểm du lịch</h5>
+                            <h4>Điểm du lịch</h4>
                             <ul>
                                 <li><p>Quốc gia</p></li>
                                 <li><p> Thành Phố</p></li>
                             </ul>
                         </div>
                         <div className="footer-box">
-                            <h5> Đối tác của chúng tôi</h5>
+                            <h4> Đối tác của chúng tôi</h4>
                             <ul>
                                 <li><p>Cổng thông tin đối tác YCS</p></li>
                                 <li><p> Partner Hub</p></li>
@@ -45,13 +45,22 @@ function Footer() {
                             </ul>
                         </div>
                         <div className="footer-box">
-                            <h5>Trung tâm trợ giúp</h5>
+                            <h4>Tải ứng dụng</h4>
                             <ul>
-                                <li><p> Tải ứng dụng</p></li>
                                 <li><p> Ứng dụng iOS</p></li>
                                 <li><p> Ứng dụng Android</p></li>
                             </ul>
                         </div>
+                    </div>
+                </div>
+                <div className="coppyright">
+                    <div className="coppyright-content">
+                        <span>Mọi nội dung tại đây © 2005 – 2023 Công ty TNHH Tư nhân Agoda. Bảo Lưu Mọi Quyền.</span><br />
+                        <span>Agoda.com là thành viên của Tập đoàn Booking Holdings, nhà cung cấp dịch vụ du lịch trực tuyến &amp; các dịch vụ có liên quan hàng đầu thế giới.</span>
+                        <div>
+                            <img src="./images/logo-1.svg"></img>
+                        </div>
+                        <small>hk-pc-2f-acm-web-user-d44f55fc8-hk2vq</small>
                     </div>
                 </div>
             </footer>
