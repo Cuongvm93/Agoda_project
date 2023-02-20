@@ -10,22 +10,19 @@ import Signin from './components/Signin/Signin';
 import LoginPage from './Pages/Login_page/login';
 import SignUp from './components/SignUp/SignUp'
 import SignUpPage from './Pages/SignUp_Page/signUp_page';
-import {Route,Routes} from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
+import HomePage from './Pages/home_page/HomePage';
+import FindHotelInPalace from './Pages/FIndHotelCity/FIndHotelCity';
 
 function App() {
   return (
     <div className="App">
-      {/* <Header></Header>
-      <Search/>
-      <SearchMainHead/>
-      <SearchMainBody/>
-      <CardHotel/>
-      <Footer/> */}
       <Routes>
-            <Route path='/signup' element={<SignUpPage/>}/>
-            <Route path="/login" element={<LoginPage/>}/>
-          </Routes>
-         
+        <Route path='/' element={<HomePage/>} />
+        <Route path='/signup' element={<SignUpPage />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
+      {/* <FindHotelInPalace/> */}
     </div>
 
   );

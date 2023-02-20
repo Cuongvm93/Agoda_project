@@ -63,6 +63,10 @@ function SlideTopPalace() {
     }
 
     return (
+        <>
+        <div className="top-palace-title">
+            <h3>Các điểm đến thu hút nhất Việt Nam</h3>
+        </div>
         <div className="top-palace-slide-show">
             <div onClick={() => { handleRunslide() }} style={runslide === 1135 ? {opacity:1} : {opacity:0}} className="blur1">
                 <div className="btn-first">
@@ -79,9 +83,9 @@ function SlideTopPalace() {
                 {arr.map((e,i)=>{
                     return <City  src={`./images/hot-vn-${e.id}.jpg`} city={e.city}/>
                 })}
-
             </div>
         </div>
+        </>
     );
 }
 

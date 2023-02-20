@@ -1,13 +1,14 @@
-.search-bar-container{
- display: flex;
- width: 100vw;
- height: 9vh;
- background-color: #20274D;
- justify-content: center;
- align-items: center;
- gap:5px
+.search-bar-container {
+    display: flex;
+    width: 100vw;
+    height: 9vh;
+    background-color: #20274D;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 }
-.search-bar-container .search-Input{
+
+.search-bar-container .search-Input {
     width: 26%;
     height: 60%;
     border-radius: 5px;
@@ -18,7 +19,8 @@
     outline: none;
     border: none;
 }
-.search-date{
+
+.search-date {
     width: 15%;
     height: 60%;
     border-radius: 5px;
@@ -26,20 +28,24 @@
     outline: none;
     border: none;
 }
-.search-bar-container button{
+
+.search-bar-container button {
     width: 10%;
     height: 60%;
     border-radius: 5px;
-    background-color: white;
+    background-color: rgb(57, 143, 255);
     font-weight: 600;
+    border: none;
+    color: white;
 }
-.search-bar-container button:hover{
-    background-color: rgb(49, 49, 227);
+
+.search-bar-container button:hover {
+    background-color: rgb(90, 162, 255);
     color: white;
     cursor: pointer;
-
 }
-.search-pickroom{
+
+.search-pickroom {
     display: flex;
     width: 15%;
     height: 60%;
@@ -50,39 +56,46 @@
     font-weight: 400;
     cursor: pointer;
 }
-.search-pickroom:hover .search-pickrooms-dropdown{ 
+
+.search-pickroom:hover .search-pickrooms-dropdown {
     background-color: #20274D;
 }
-.search-pickrooms-dropdown{
+
+.search-pickrooms-dropdown {
     width: 15%;
-    background-color:white;
+    background-color: white;
     border-radius: 7px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     position: absolute;
     left: 61%;
     transition: 0.8;
- 
+
 }
-.search-pickrooms-dropdown i{
+
+.search-pickrooms-dropdown i {
     font-size: 23px;
     cursor: pointer;
 
 }
-.search-numberroom{
+
+.search-numberroom {
     display: flex;
     justify-content: space-around;
 }
-.search-numberroom div{
+
+.search-numberroom div {
     font-size: 18px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.search-numberperson{
+
+.search-numberperson {
     display: flex;
     justify-content: space-around;
 }
-.search-numberperson div{
+
+.search-numberperson div {
     font-size: 18px;
     display: flex;
     justify-content: center;
