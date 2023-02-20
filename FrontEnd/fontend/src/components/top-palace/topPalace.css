@@ -1,10 +1,20 @@
 #run-slide {
     display: flex;
     transition: transform 0.5s linear;
-    height: 166px;
+    height: 200px;
     min-width: max-content;
     gap: 30px;
     margin: 0 20px;
+}
+.top-palace-title{
+    margin-top: 80px ;
+}
+.top-palace-title h3{
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 500;
+    margin: 10px 0px;
+    text-align: center;
 }
 
 .top-palace-slide-show {
@@ -15,7 +25,7 @@
     display: flex;
     align-items: center;
     flex-direction: row;
-    top: 60px;
+    top: 0px;
     bottom:  150px;
     background-color: #ffffff;
 }
@@ -59,16 +69,15 @@
 }
 
 .blur1 {
-   color: #a0a0a0;
+    color: #a0a0a0;
     background-color: white;
     height: 160px;
     display: flex;
     align-items: center;
-      box-shadow: 15px 7px 16px 8px white;
-
+    box-shadow: 15px 7px 16px 8px white;
     z-index: 10;
     position: absolute;
-    left:0%;
+    left: 0%;
     top: 10px;
     padding-left: 1%;
     font-size: 32px;

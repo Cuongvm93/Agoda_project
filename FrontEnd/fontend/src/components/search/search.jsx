@@ -40,7 +40,7 @@ export default function Search(){
       console.log(current);
     }
     return (
-      <>
+      <div className='searchBar-sticky'>
         <div className="search-bar-container">
           <input type="text" placeholder='Search' className='search-Input'/>
            {/* <input type="date" placeholder='Check in' className='search-date'/>
@@ -52,6 +52,6 @@ export default function Search(){
           <button>Search</button>
         </div>
         <Pickrooms mouseLeave={handelMouseleave} display={display} minusperson={handelminuperson} addperson={handelAddperson} addroom={handeladdroom} minusroom={handelminusroom} room={room} person={person}/>
-      </>
+      </div>
     );
 }

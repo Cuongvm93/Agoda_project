@@ -51,6 +51,10 @@ nav {
     margin-left: 15px;
 }
 
+.navbar-menu ul{
+    margin-top: 20px;
+}
+
 .buton {
     padding: 13px;
     background: none;
