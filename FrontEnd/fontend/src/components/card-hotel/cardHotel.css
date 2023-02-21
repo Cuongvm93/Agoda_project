@@ -1,6 +1,5 @@
 .card-item-container {
-    /* position: relative; */
-    width: 85%;
+    width: 100%;
     
 }
 .card-item-container:hover{
@@ -17,7 +16,7 @@
 
 .card-gallery-wrapper {
     position: relative;
-    padding: 20px;
+    padding: 10px;
     display: grid;
     grid-template-columns: repeat(5, 49px);
     grid-template-rows: repeat(4, 63px);
@@ -100,11 +99,11 @@
 .additional-wrapper {
     margin-left: 20px;
     border-left: 1px solid #d7d7db;
-    padding: 16px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 260px;
+    width: 50%;
     cursor: pointer;
 }
 
