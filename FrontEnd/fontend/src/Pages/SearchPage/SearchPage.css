@@ -23,7 +23,7 @@
 
 .fillter-range {
     display: flex;
-    width: fit-content;
+    /* width: fit-content; */
 }
 
 .fillter-range input:valid {
