@@ -183,6 +183,7 @@
     font-weight: 500;
 }
 .zoom-image{
+    z-index: 100;
     max-width: 500px;
     max-height: 480px;
     position: absolute;

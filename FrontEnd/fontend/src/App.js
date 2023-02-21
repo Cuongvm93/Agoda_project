@@ -17,13 +17,13 @@ import SearchPage from './Pages/SearchPage/SearchPage';
 function App() {
   return (
     <div className="App">
-      {/* <Routes>
+      <Routes>
         <Route path='/' element={<HomePage/>} />
-        <Route path='/result' element={<FindHotelInPalace/>}/>
+        <Route path='/result' element={<SearchPage/>}/>
         <Route path='/signup' element={<SignUpPage />} />
         <Route path="/login" element={<LoginPage />} />
-      </Routes> */}
-      <HomePage/>
+      </Routes>
+      {/* <HomePage/> */}
     </div>
 
   );
