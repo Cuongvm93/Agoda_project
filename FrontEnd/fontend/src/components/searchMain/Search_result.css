@@ -1,0 +1,27 @@
+.SearchResult_container{
+    /* display: none; */
+    position: relative;
+    width: 100%;
+    background-color:white;
+    height: max-content;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+     box-shadow: rgba(3, 26, 101, 0.24) 0px 3px 8px;
+     z-index: 10;
+     border-bottom-left-radius: 5px ;
+     border-bottom-right-radius: 5px ;
+}
+.searchResult_item{
+    cursor: pointer;
+    color: gray;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+.searchResult_item p{
+    font-size: 22px;
+}
+.searchResult_item:hover{
+    color: black;
+   
+}

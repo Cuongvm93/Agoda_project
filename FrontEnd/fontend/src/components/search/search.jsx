@@ -6,7 +6,7 @@ import { Dropdown } from 'antd';
 import Pickrooms from './pickrooms';
 import Dropdownbt from './drdownboostrap';
 import DropdownItemTagsExample from './drdownboostrap';
-export default function Search(){
+export default function Search({searchValue}){
     const [room,setRoom]=useState(1)
     const [person,setPerson]=useState(2)  
     const [display,setDidplay]=useState("none")
@@ -42,7 +42,7 @@ export default function Search(){
     return (
       <div className='searchBar-sticky'>
         <div className="search-bar-container">
-          <input type="text" placeholder='Search' className='search-Input'/>
+          <input type="text" placeholder='Search' value={searchValue} className='search-Input'/>
            {/* <input type="date" placeholder='Check in' className='search-date'/>
            <input type="date" placeholder='Check out' className='search-date'/>     */}
            <DateRange height={"5.4vh"} handelchange={handelchange}/>

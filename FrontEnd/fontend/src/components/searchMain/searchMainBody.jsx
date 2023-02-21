@@ -1,12 +1,16 @@
 import { Input } from 'antd';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import DateRange from '../search/dateRange'
 import Pickrooms from '../search/pickrooms';
+import SearchResult from './search_result';
 export default function SearchMainBody(params) {
     const [room,setRoom]=useState(1)
     const [person,setPerson]=useState(2)
     const [display,setDisplay]=useState("none")
     const [border,setBorder]=useState("none")
+    const [searchResult,setSearchResult]=useState([])
+    const [displaySearchResullt,setDisplayResult]=useState("none")
+    const [inputchange,setInputChange]=useState("")
     const handelClick=()=>{
         setBorder("1px solid rgb(0, 166, 255)")
         if (display=="none") {
@@ -47,10 +51,45 @@ export default function SearchMainBody(params) {
         console.log(pickDate.getdate());
         // console.log(checkinDay.$d = checkOutday.$d);
       }
-      
+      const HandelClickInput=()=>{
+        if(displaySearchResullt=="none"){
+          setDisplayResult("block")
+        }else{
+          setDisplayResult("none")
+        }
+      }
+      const handelChangeInput=(e)=>{
+          setInputChange(e.target.value)
+      }
+      useEffect(()=>{
+        if (inputchange.length>0) {
+        fetch("http://localhost:5000/api/v1/searchAll")
+        .then(res=>res.json())
+        .then(resutl=>{
+          let newArr= new Array(...resutl[0][0],...resutl[1][0])
+          console.log(newArr);
+          newArr=newArr.filter((item)=>{
+            return (item.Name.toLowerCase()).includes((inputchange.toLowerCase()))==true
+          })
+          setSearchResult(newArr)
+        })
+        }else{
+          fetch("http://localhost:5000/api/v1/searchAll")
+        .then(res=>res.json())
+        .then(resutl=>{
+          console.log(resutl[0][0]);
+          setSearchResult(resutl[0][0])
+        })
+        }
+      },[inputchange])
+      console.log(searchResult);
     return(
         <div className="search-main-body">
-        <Input placeholder='search' style={{width:"80%",height:"20%",fontSize:"21px"}} defaultValue={"Da Nang"}/>
+        
+        <div style={{width:"80%",margin:"0 auto", height:"20%"}}>
+        <Input placeholder='search' style={{width:"100%",height:"100%",fontSize:"21px"}} defaultValue={"Da Nang"} onClick={HandelClickInput} onChange={handelChangeInput}/>
+        <SearchResult display={displaySearchResullt} data={searchResult}/>
+        </div>
         <div className='search-main-pick'>
         <DateRange height={"225%"} width={"150%"} size="21px" weight={500} handelchange={handelChange}/>
         <div className="search-main-pickroom" onClick={handelClick} style={{border:border}}>

@@ -1,11 +1,14 @@
 .card-item-container {
     /* position: relative; */
-    width: 85%;
+    width: 80%;
+    cursor: pointer;
     
 }
+
 .card-item-container:hover{
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
      transition: all 0.3s ease;
+     background-color: rgb(236, 241, 241);
 }
 
 .card-item-content {
@@ -80,12 +83,13 @@
 .card-title {
     display: flex;
     flex-direction: column;
+    flex: 2;
 }
 
 .card-title .contentHeader {
     color: #000;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 700;
     display: block;
     margin-bottom: 8px;
@@ -98,9 +102,10 @@
 }
 
 .additional-wrapper {
-    margin-left: 20px;
+    flex: 1;
+    /* margin-left: 20px; */
     border-left: 1px solid #d7d7db;
-    padding: 16px;
+    padding: 3px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -153,10 +158,11 @@
     padding-bottom: 12px;
 }
 .price-card-item{
+    margin-right: 20px;
     color: #e12d2d;
     font-weight: bold;
     float: right;
-    font-size: 24px;
+    font-size: 19px;
 }
 .additional-button span{
     font-size: 14px;

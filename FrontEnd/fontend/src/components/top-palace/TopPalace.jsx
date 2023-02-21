@@ -1,11 +1,12 @@
 import React from "react";
 import { useState } from "react";
+import { redirect, useNavigate } from "react-router-dom";
 import "./topPalace.css"
 
-function City({src,city}) {
+function City({src,city,handlclick}) {
     return (
         <>
-            <div className="sun-slide dau">
+            <div className="sun-slide dau" onClick={handlclick}>
                 <img
                     src={src}
                     alt={city}
@@ -61,7 +62,12 @@ function SlideTopPalace() {
 
         setRunslide(1135)
     }
-
+    const navigate=useNavigate()
+    function handelClick(params) {
+    // window.location.href=`http://localhost:3000/result?city=${params}`
+    navigate(`/result?city=${params}`)
+    
+}
     return (
         <>
         <div className="top-palace-title">
@@ -81,7 +87,7 @@ function SlideTopPalace() {
             </div>
             <div id="run-slide" style={{ transform: `translateX(-${runslide}px)` }}>
                 {arr.map((e,i)=>{
-                    return <City  src={`./images/hot-vn-${e.id}.jpg`} city={e.city}/>
+                    return <City handlclick={()=>handelClick(e.city)}  src={`./images/hot-vn-${e.id}.jpg`} city={e.city}/>
                 })}
             </div>
         </div>
