@@ -12,18 +12,18 @@ import SignUp from './components/SignUp/SignUp'
 import SignUpPage from './Pages/SignUp_Page/signUp_page';
 import { Route, Routes } from 'react-router-dom'
 import HomePage from './Pages/home_page/HomePage';
-import FindHotelInPalace from './Pages/FIndHotelCity/FIndHotelCity';
+import SearchPage from './Pages/SearchPage/SearchPage';
 
 function App() {
   return (
     <div className="App">
-      <Routes>
+      {/* <Routes>
         <Route path='/' element={<HomePage/>} />
         <Route path='/result' element={<FindHotelInPalace/>}/>
         <Route path='/signup' element={<SignUpPage />} />
         <Route path="/login" element={<LoginPage />} />
-      </Routes>
-      {/* <FindHotelInPalace/> */}
+      </Routes> */}
+      <SearchPage/>
     </div>
 
   );
