@@ -5,7 +5,7 @@ import "./cardHotel.css"
 import { useState } from 'react';
 
 
-function CardItem() {
+function CardItem({img1,img2,img3,img4,img5,img6,title,district,city,price}) {
     const [display, setDisplay] = useState("none")
     const [src, setSrc] = useState('')
     const handleOnMouseImg = (e) => {
@@ -24,31 +24,31 @@ function CardItem() {
                             <img src={src} alt="" />
                         </div>
                         <figure class="gallery__item gallery__item--1">
-                            <img src="./images/image-main.jpg" class="gallery__img" alt="Image 1" />
+                            <img src={img1} class="gallery__img" alt="Image 1" />
                         </figure>
                         <figure class="gallery__item gallery__item--3">
-                            <img src="./images/thumnail-1.jpg" class="gallery__img" alt="Image 3" onMouseLeave={handelMouseLeave} onMouseOver={()=>handleOnMouseImg('./images/thumnail-1.jpg')} />
+                            <img src={img2} class="gallery__img" alt="Image 3" onMouseLeave={handelMouseLeave} onMouseOver={()=>handleOnMouseImg(img2)} />
                         </figure>
                         <figure class="gallery__item gallery__item--2">
-                            <img src="./images/thumnail-2.jpg" class="gallery__img" alt="Image 2" onMouseLeave={handelMouseLeave} onMouseOver={()=>handleOnMouseImg('./images/thumnail-2.jpg')} />
+                            <img src={img3} class="gallery__img" alt="Image 2" onMouseLeave={handelMouseLeave} onMouseOver={()=>handleOnMouseImg(img3)} />
                         </figure>
 
                         <figure class="gallery__item gallery__item--4">
-                            <img src="./images/thumnail-3.jpg" class="gallery__img" alt="Image 4" onMouseLeave={handelMouseLeave} onMouseOver={()=>handleOnMouseImg('./images/thumnail-3.jpg')} />
+                            <img src={img4} class="gallery__img" alt="Image 4" onMouseLeave={handelMouseLeave} onMouseOver={()=>handleOnMouseImg(img4)} />
                         </figure>
                         <figure class="gallery__item gallery__item--5">
-                            <img src="./images/thumnail-4.jpg" class="gallery__img" alt="Image 5" onMouseLeave={handelMouseLeave} onMouseOver={()=>handleOnMouseImg('./images/thumnail-4.jpg')} />
+                            <img src={img5} class="gallery__img" alt="Image 5" onMouseLeave={handelMouseLeave} onMouseOver={()=>handleOnMouseImg(img5)} />
                         </figure>
                         <figure class="gallery__item gallery__item--6">
-                            <img src="./images/thumnail-5.jpg" class="gallery__img" alt="Image 6" onMouseLeave={handelMouseLeave} onMouseOver={()=>handleOnMouseImg('./images/thumnail-5.jpg')} />
+                            <img src={img6} class="gallery__img" alt="Image 6" onMouseLeave={handelMouseLeave} onMouseOver={()=>handleOnMouseImg(img6)} />
                         </figure>
                     </div>
 
                     <div className="card-title">
-                        <a href=""> <div className="contentHeader">The Lakeview - Căn hộ Lotus Hồ Tây (The Lakeview - West Lake Lotus Apartments)</div></a>
-                        <Rate className='ratting' />
+                        <a href=""> <div className="contentHeader">{title}</div></a>
+                        <Rate className='ratting' disabled defaultValue={4} />
                         <div>
-                            <LocationOnIcon /> <span>Quận Tây Hồ,Hà Nội - Xem trên bản đồ</span>
+                            <LocationOnIcon /> <span>{district},{city} - Xem trên bản đồ</span>
                         </div>
                         <p>"nice"</p>
                     </div>
@@ -66,7 +66,7 @@ function CardItem() {
                         <div className='additional-price'>
                             <div className='giatrungbinh'>
                                 <p>Giá trung bình mỗi đêm</p>
-                                <div className='price-card-item'> 406.868 đ</div>
+                                <div className='price-card-item'> {new Intl.NumberFormat('de-DE').format(price)} đ</div>
                             </div>
                             <div className='additional-button'>
                                 <button ><span>Kiểm tra lượng phòng trống</span></button>
