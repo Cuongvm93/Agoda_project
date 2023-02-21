@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import DateRange from '../search/dateRange'
 import Pickrooms from '../search/pickrooms';
 import SearchResult from './search_result';
+import {useDispatch,useSelector} from 'react-redux'
 export default function SearchMainBody(params) {
     const [room,setRoom]=useState(1)
     const [person,setPerson]=useState(2)
@@ -83,11 +84,12 @@ export default function SearchMainBody(params) {
         }
       },[inputchange])
       console.log(searchResult);
+      const searchValue=useSelector(state=>state.searchValue)
+      console.log(searchValue);
     return(
         <div className="search-main-body">
-        
         <div style={{width:"80%",margin:"0 auto", height:"20%"}}>
-        <Input placeholder='search' style={{width:"100%",height:"100%",fontSize:"21px"}} defaultValue={"Da Nang"} onClick={HandelClickInput} onChange={handelChangeInput}/>
+        <Input placeholder='search' style={{width:"100%",height:"100%",fontSize:"21px"}} defaultValue={searchValue} onClick={HandelClickInput} onChange={handelChangeInput}/>
         <SearchResult display={displaySearchResullt} data={searchResult}/>
         </div>
         <div className='search-main-pick'>

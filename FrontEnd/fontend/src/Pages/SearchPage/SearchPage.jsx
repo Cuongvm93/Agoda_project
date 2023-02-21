@@ -6,13 +6,15 @@ import { Checkbox, Input, Rate } from 'antd';
 import CardItem from "../../components/card-hotel/CardHotel";
 import "./SearchPage.css"
 import { ButtonGroup, Button } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "../../components/footer/Footer";
+import { useLocation } from "react-router-dom";
 
 
 
 
 function SearchPage() {
+    const [dataHotel,setDataHotel]=useState([])
     const [value, setValue] = useState([0,23000000]);
 
     const handleChange = (event, newValue) => {
@@ -21,6 +23,14 @@ function SearchPage() {
     const handleInputChange = (event) => {
         setValue(event.target.value === '' ? '' : Number(event.target.value));
     };
+    const location=useLocation()
+    const params=new URLSearchParams(location.search)
+    console.log(params.get('city'));
+    useEffect(()=>{
+        fetch(`http://localhost:5000/api/v1/hotel/${params.get('city')}`)
+        .then(res=>res.json())
+        .then(data=>setDataHotel(data))
+    })
     return (
         <div className="searchPage">
             <div>
@@ -70,7 +80,7 @@ function SearchPage() {
                             <Checkbox >Hotel</Checkbox>
                             <Checkbox >Apartment</Checkbox>
                             <Checkbox >Resort</Checkbox>
-                            <Checkbox >Bulgaro</Checkbox>
+                            <Checkbox >Buggalow</Checkbox>
                         </div>
                         <div className="type-fillter">
                             <h6>Tiện ích</h6>
@@ -120,9 +130,20 @@ function SearchPage() {
                             <Button> Ưu đãi nóng hổi </Button>
                         </ButtonGroup>
                     </div>
-                    <CardItem />
-                    <CardItem />
-                    <CardItem />
+                    {dataHotel.map((e,i)=>{
+                        return <CardItem 
+                            img1={e.image[0]}
+                            img2={e.image[1]}
+                            img3={e.image[2]}
+                            img4={e.image[3]}
+                            img5={e.image[4]}
+                            img6={e.image[5]}
+                            title={e.Name}
+                            price={e.price}
+                            district={e.district}
+                            city={e.city}
+                        />
+                    })}
                 </div>
             </div>
             <Footer />

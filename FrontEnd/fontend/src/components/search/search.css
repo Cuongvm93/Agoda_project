@@ -62,6 +62,7 @@
 }
 
 .search-pickrooms-dropdown {
+    z-index: 100;
     width: 15%;
     background-color: white;
     border-radius: 7px;
