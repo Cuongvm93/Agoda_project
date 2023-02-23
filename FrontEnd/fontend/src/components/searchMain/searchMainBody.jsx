@@ -4,6 +4,7 @@ import DateRange from '../search/dateRange'
 import Pickrooms from '../search/pickrooms';
 import SearchResult from './search_result';
 import {useDispatch,useSelector} from 'react-redux'
+import { useNavigate } from 'react-router-dom';
 export default function SearchMainBody(params) {
     const [room,setRoom]=useState(1)
     const [person,setPerson]=useState(2)
@@ -11,6 +12,11 @@ export default function SearchMainBody(params) {
     const [border,setBorder]=useState("none")
     const [searchResult,setSearchResult]=useState([])
     const [displaySearchResullt,setDisplayResult]=useState("none")
+    const {searchValue}=useSelector(state=>state.search)
+    const checkIn=useSelector(state=>state.date.checkin)
+    const checkOut=useSelector(state=>state.date.checkout)
+    const {type}=useSelector(state=>state.search)
+    console.log(searchValue,checkIn,checkOut,type);
     const [inputchange,setInputChange]=useState("")
     const handelClick=()=>{
         setBorder("1px solid rgb(0, 166, 255)")
@@ -39,19 +45,6 @@ export default function SearchMainBody(params) {
           setPerson(person -1 )
         }
       }}
-      const handelChange=(current)=>{
-        let [checkinDay,checkOutday]=current
-        console.log(checkinDay.$D,checkinDay.$M,checkinDay.$y);
-        // console.log(pickDate.getMonth());
-        // let pickMonth= Number(pickDate.getMonth())+1
-       let pickDate=checkinDay.$D+ "-" + (checkinDay.$M+1).toString() + "-"+checkinDay.$y
-        // + "/" + pickDate.getFullYear()
-        // // pickDate=pickDate.getUTCDate()
-        console.log(pickDate);
-        pickDate=new Date('24-02-2023')
-        console.log(pickDate.getdate());
-        // console.log(checkinDay.$d = checkOutday.$d);
-      }
       const HandelClickInput=()=>{
         if(displaySearchResullt=="none"){
           setDisplayResult("block")
@@ -61,6 +54,7 @@ export default function SearchMainBody(params) {
       }
       const handelChangeInput=(e)=>{
           setInputChange(e.target.value)
+          setDisplayResult("block")
       }
       useEffect(()=>{
         if (inputchange.length>0) {
@@ -68,7 +62,6 @@ export default function SearchMainBody(params) {
         .then(res=>res.json())
         .then(resutl=>{
           let newArr= new Array(...resutl[0][0],...resutl[1][0])
-          console.log(newArr);
           newArr=newArr.filter((item)=>{
             return (item.Name.toLowerCase()).includes((inputchange.toLowerCase()))==true
           })
@@ -78,27 +71,34 @@ export default function SearchMainBody(params) {
           fetch("http://localhost:5000/api/v1/searchAll")
         .then(res=>res.json())
         .then(resutl=>{
-          console.log(resutl[0][0]);
+        
           setSearchResult(resutl[0][0])
         })
         }
       },[inputchange])
-      console.log(searchResult);
-      const searchValue=useSelector(state=>state.searchValue)
-      console.log(searchValue);
+    
+      useEffect(()=>{
+        setInputChange(searchValue)
+        setDisplayResult("none")
+      },[searchValue])
+      const navigate=useNavigate()
     return(
         <div className="search-main-body">
         <div style={{width:"80%",margin:"0 auto", height:"20%"}}>
-        <Input placeholder='search' style={{width:"100%",height:"100%",fontSize:"21px"}} defaultValue={searchValue} onClick={HandelClickInput} onChange={handelChangeInput}/>
+        <Input placeholder='search' style={{width:"100%",height:"100%",fontSize:"21px"}}  value={inputchange} onClick={HandelClickInput} onChange={handelChangeInput} allowClear/>
         <SearchResult display={displaySearchResullt} data={searchResult}/>
         </div>
         <div className='search-main-pick'>
-        <DateRange height={"225%"} width={"150%"} size="21px" weight={500} handelchange={handelChange}/>
+        <DateRange height={"225%"} width={"150%"} size="21px" weight={500} />
         <div className="search-main-pickroom" onClick={handelClick} style={{border:border}}>
             <span>{room} {room>1?"rooms":"room"} | {person} persons</span>
         </div>
         </div>
-        <button>Search</button> 
+        <button onClick={()=>{
+          if(searchValue&&checkIn&&checkOut){
+            navigate(`/result?place=${searchValue}&checkin=${checkIn}&checkout=${checkOut}&type=${type}`)
+          }
+        }}>Search</button> 
         <Pickrooms
         minusroom={handelminusroom}
         addroom={handeladdroom}

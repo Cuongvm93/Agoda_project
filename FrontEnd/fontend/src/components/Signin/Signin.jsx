@@ -16,7 +16,6 @@ function Signin(props) {
   } = useForm();
 
   const onSubmit = (data) => {
-    alert(JSON.stringify(data));
   }; // your form submit function which will invoke after successful validation
 
   console.log(watch("example")); // you can watch individual input by pass the name of the input
