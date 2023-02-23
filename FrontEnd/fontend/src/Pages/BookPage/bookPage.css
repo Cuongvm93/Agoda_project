@@ -1,0 +1,32 @@
+.book-page-header{
+    height: 60px;
+    box-shadow: 0px  7px 5px  rgb(184, 184, 184);
+    margin-bottom: 20px;
+}
+.book-page-wrapper{
+    width: 1100px;
+    display: flex;
+    text-align: center;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* book room body */
+.book-room-body{
+    width: 1090px;
+    margin: 0 auto;
+}
+.book-in4{
+    height: 442px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding: 0px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: rgb(0 0 0 / 20%) 0px 1px 3px 1px;
+    border-radius: 8px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(221, 223, 226);
+}
+
