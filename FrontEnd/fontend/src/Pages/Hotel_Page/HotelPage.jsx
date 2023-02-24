@@ -6,34 +6,49 @@ import VerifiedRoundedIcon from '@mui/icons-material/VerifiedRounded';
 import LocalParkingRoundedIcon from '@mui/icons-material/LocalParkingRounded';
 import Footer from "../../components/footer/Footer";
 import TypeRoom from "../../components/TypeRoom/TypeRoom";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function HotelPage() {
+    let {idHotel}=useParams()
+    console.log(idHotel);
+    const [dataRender,setDataRender]=useState([])
+    useEffect(()=>{
+        fetch(`http://localhost:5000/api/v1/hotel/${idHotel}`)
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data[0]);
+            setDataRender(data[0])
+        })
+    },[])
     return (
         <>
             <Header />
             <Search />
+            {dataRender.price&&
+            <>
             <div className="hotelPage-wrapper">
                 <div class='hotel-page-gallery'>
                     <figure className="gallery-hotel gallery-hotel--1">
-                        <img src="/images/hot-vn-4.jpg" className="gallery-img" alt="Image 1" />
+                        <img src={dataRender.image[0]} className="gallery-img" alt="Image 1" />
                     </figure>
                     <figure className="gallery-hotel gallery-hotel--2">
-                        <img src="/images/hot-vn-4.jpg" className="gallery-img" alt="Image 2" />
+                        <img src={dataRender.image[1]} className="gallery-img" alt="Image 2" />
                     </figure>
                     <figure className="gallery-hotel gallery-hotel--3">
-                        <img src="/images/hot-vn-4.jpg" className="gallery-img" alt="Image 3" />
+                        <img src={dataRender.image[2]} className="gallery-img" alt="Image 3" />
                     </figure>
                     <figure className="gallery-hotel gallery-hotel--4">
-                        <img src="/images/hot-vn-4.jpg" className="gallery-img" alt="Image 4" />
+                        <img src={dataRender.image[3]} className="gallery-img" alt="Image 4" />
                     </figure>
                     <figure className="gallery-hotel gallery-hotel--5">
-                        <img src="/images/hot-vn-1.jpg" className="gallery-img" alt="Image 5" />
+                        <img src={dataRender.image[4]} className="gallery-img" alt="Image 5" />
                     </figure>
                     <figure className="gallery-hotel gallery-hotel--6">
-                        <img src="/images/hot-vn-4.jpg" className="gallery-img" alt="Image 6" />
+                        <img src={dataRender.image[5]} className="gallery-img" alt="Image 6" />
                     </figure>
                     <figure className="gallery-hotel gallery-hotel--7">
-                        <img src="/images/hot-vn-4.jpg" className="gallery-img" alt="Image 7" />
+                        <img src={dataRender.image[6]} className="gallery-img" alt="Image 7" />
                     </figure>
                 </div>
                 <div id="HotelNavbar">
@@ -52,7 +67,7 @@ function HotelPage() {
                             </li>
                         </ul>
                         <div className="hotel-just-price inln-flx">
-                            <strong id="hotel-price">595.565</strong><p>đ</p>
+                            <strong id="hotel-price">{new Intl.NumberFormat('de-DE').format(dataRender.price)}</strong><p>đ</p>
                             <button>Xem giá</button>
                         </div>
                     </div>
@@ -60,9 +75,9 @@ function HotelPage() {
                 <div className="descriptionHotel">
                     <div className="property-main-content">
                         <div className="title-description boderrrr">
-                            <h4>Căn hộ sân bay Sabay - The Connect (Sabay Airport Apartment - The Connect)</h4>
+                            <h4>{dataRender.Name}</h4>
                             <Rate disabled defaultValue={5} />
-                            <h6>Tân Bình, Hồ Chí Minh, Việt Nam - TRÊN BẢN ĐỒ</h6>
+                            <h6>{dataRender.district}, {dataRender.city_name}, Việt Nam - TRÊN BẢN ĐỒ</h6>
                             <p>Nằm ở vị trí trung tâm tại Tân Bình của Hồ Chí Minh, chỗ nghỉ này đặt quý khách ở gần các điểm thu hút và tùy chọn ăn uống thú vị. Đừng rời đi trước khi ghé thăm Bảo tàng Chứng tích chiến tranh nổi tiếng. Chỗ nghỉ 5 sao này được trang bị các tiện nghi ngay trong khuôn viên để nâng cao chất lượng và niềm vui cho kỳ nghỉ của quý khách.</p>
                         </div>
                         <div className="diemnoibatnhat boderrrr">
@@ -101,7 +116,9 @@ function HotelPage() {
                             <div className="likeeee">
                                 <div className="boderrrr maglik"><p>Dọn phòng</p></div>
                                 <div className="boderrrr maglik"><p>Ngắm cảnh</p></div>
-                                <div className="boderrrr maglik"><p>Bữa sáng</p></div>
+                                {dataRender.breakfast!="0"?
+                                <div className="boderrrr maglik"><p>Bữa sáng</p></div>:""    
+                            }
                             </div>
                         </div>
                         <div className="mapCompact boderrrr">
@@ -186,6 +203,8 @@ function HotelPage() {
                     </div>
                 </div>
             </div>
+            </>
+            }
             <Footer />
 
         </>

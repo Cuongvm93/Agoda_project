@@ -1,7 +1,7 @@
 const express=require("express")
+const cookieParser=require("cookie-parser");
 const bodyparser=require("body-parser")
 const cors=require("cors")
-const cookieparser=require("body-parser")
 const app=express()
 const port=5001
 const routerLogin=require('./routes/login.routes')

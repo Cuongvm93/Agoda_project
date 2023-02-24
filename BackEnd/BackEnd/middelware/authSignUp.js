@@ -1,6 +1,9 @@
 const {getAllUser}=require('../model/user')
+const jwt=require('jsonwebtoken')
+const jwtsecret = "the most secret string of text in history"
 module.exports.checkLogin=async(req,res,next)=>{
     const {email,password}=req.body;
+    console.log(password);
     let result=await getAllUser()
     let error={}
     let find=result[0].find(item=>{
@@ -10,7 +13,11 @@ module.exports.checkLogin=async(req,res,next)=>{
         if (find.password!==password) {
             error['errPass']="error pass"
         }else{
-            next()
+            res.status(200).json({
+                status:"success",
+                name:find.Name,
+                token:jwt.sign({name:find.Name,id:find.idcustomer},jwtsecret),
+            })
         }
     }else{
         error['errEmail']="error email"

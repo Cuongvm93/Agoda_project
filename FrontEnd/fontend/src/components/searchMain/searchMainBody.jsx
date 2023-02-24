@@ -16,7 +16,8 @@ export default function SearchMainBody(params) {
     const checkIn=useSelector(state=>state.date.checkin)
     const checkOut=useSelector(state=>state.date.checkout)
     const {type}=useSelector(state=>state.search)
-    console.log(searchValue,checkIn,checkOut,type);
+    const {id}=useSelector(state=>state.search)
+    console.log(searchValue,checkIn,checkOut,type,id);
     const [inputchange,setInputChange]=useState("")
     const handelClick=()=>{
         setBorder("1px solid rgb(0, 166, 255)")
@@ -96,7 +97,11 @@ export default function SearchMainBody(params) {
         </div>
         <button onClick={()=>{
           if(searchValue&&checkIn&&checkOut){
-            navigate(`/result?place=${searchValue}&checkin=${checkIn}&checkout=${checkOut}&type=${type}`)
+            if (type=="city") {
+              navigate(`/result?place=${searchValue}&checkin=${checkIn}&checkout=${checkOut}&type=${type}`)
+            }else{
+              navigate(`/hotel/${id}`)
+            }
           }
         }}>Search</button> 
         <Pickrooms
