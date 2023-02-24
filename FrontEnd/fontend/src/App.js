@@ -15,17 +15,18 @@ import HomePage from './Pages/home_page/HomePage';
 import SearchPage from './Pages/SearchPage/SearchPage';
 import HotelPage from './Pages/Hotel_Page/HotelPage';
 import BookPage from './Pages/BookPage/BookPage';
+import Account from './components/account/Account';
 
 function App() {
   return (
     <div className="App">
-      {/* <Routes>
+      <Routes>
         <Route path='/' element={<HomePage/>} />
         <Route path='/result' element={<SearchPage/>}/>
         <Route path='/signup' element={<SignUpPage />} />
         <Route path="/login" element={<LoginPage />} />
-      </Routes> */}
-      <BookPage/>
+      </Routes>
+      {/* <Account/> */}
     </div>
 
   );
