@@ -2,20 +2,6 @@ import "./hotelRecommend.css"
 import { Rate } from "antd";
 import { useState } from "react";
 
-// function HotelRecomendCard() {
-//     return (
-//         <>
-//         </>
-//     )
-// }
-// let objHotel = [
-//     {
-//          image:'',
-//         name:"",
-//         rate:"",
-//         price: "",
-//     }
-// ]
 
 function HotelRecommend() {
     let [city,setCity]  = useState({
