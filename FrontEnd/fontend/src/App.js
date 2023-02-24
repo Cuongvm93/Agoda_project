@@ -10,7 +10,7 @@ import Signin from './components/Signin/Signin';
 import LoginPage from './Pages/Login_page/login';
 import SignUp from './components/SignUp/SignUp'
 import SignUpPage from './Pages/SignUp_Page/signUp_page';
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useParams } from 'react-router-dom'
 import HomePage from './Pages/home_page/HomePage';
 import SearchPage from './Pages/SearchPage/SearchPage';
 import HotelPage from './Pages/Hotel_Page/HotelPage';
@@ -19,13 +19,14 @@ import BookPage from './Pages/BookPage/BookPage';
 function App() {
   return (
     <div className="App">
-      {/* <Routes>
+      <Routes>
         <Route path='/' element={<HomePage/>} />
         <Route path='/result' element={<SearchPage/>}/>
         <Route path='/signup' element={<SignUpPage />} />
         <Route path="/login" element={<LoginPage />} />
-      </Routes> */}
-      <BookPage/>
+        <Route path='/hotel/:idHotel' element={<HotelPage/>}></Route>
+      </Routes>
+      {/* <BookPage/> */}
     </div>
 
   );

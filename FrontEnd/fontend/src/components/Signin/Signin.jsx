@@ -1,11 +1,12 @@
 
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./signin.css";
 
 function Signin(props) {
+  const navigate=useNavigate()
   console.log(props);
   props.handel("cuongvm")
   const {
@@ -15,7 +16,34 @@ function Signin(props) {
     formState: { errors }
   } = useForm();
 
+  const [errpass, seterrPass]=useState("")
+  const [erremail,seterrEmail]=useState("")
   const onSubmit = (data) => {
+    console.log(data.lastName);
+    fetch('http://localhost:5000/api/v1/login',{
+      method:'Post',
+      headers:{
+        "Content-type":"application/json"
+      },
+      body:JSON.stringify({
+        email:data.email,
+        password:data.lastName
+      })
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data);
+     if (data.errEmail) {
+        seterrEmail("Email không tồn tại")
+     }else if(data.errPass){
+      seterrPass("Password không đúng")
+      seterrEmail("")
+     }else if(data.status){
+      seterrPass("")
+      localStorage.setItem("tokelogin",JSON.stringify(data))
+      navigate("/")
+     }
+    })
   }; // your form submit function which will invoke after successful validation
 
   console.log(watch("example")); // you can watch individual input by pass the name of the input
@@ -34,6 +62,7 @@ function Signin(props) {
       {errors?.email?.type === "pattern" && (
         <p>Email không hợp lệ</p>
       )}
+      {erremail.length>0?<p>Email không tồn tại</p>:""}
       <label>Password</label>
       <input {...register("lastName", { minLength:8, required:true })} type="password" />
       {errors?.lastName?.type === "minLength" && (
@@ -42,6 +71,7 @@ function Signin(props) {
        {errors?.lastName?.type === "require" && (
         <p>This field is required</p>
       )}
+      {errpass.length>0?<p>{errpass}</p>:""}
       <input type="submit" value={"Signin"} />
     </form>
     <div className="form-login-footer">

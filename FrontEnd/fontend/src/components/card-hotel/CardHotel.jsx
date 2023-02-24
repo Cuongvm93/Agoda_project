@@ -3,9 +3,10 @@ import { Rate } from 'antd';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import "./cardHotel.css"
 import { useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 
 
-function CardItem({img1,img2,img3,img4,img5,img6,title,district,city,price}) {
+function CardItem({img1,img2,img3,img4,img5,img6,title,district,city,price,idhotel}) {
     const [display, setDisplay] = useState("none")
     const [src, setSrc] = useState('')
     const handleOnMouseImg = (e) => {
@@ -45,7 +46,7 @@ function CardItem({img1,img2,img3,img4,img5,img6,title,district,city,price}) {
                     </div>
 
                     <div className="card-title">
-                        <a href=""> <div className="contentHeader">{title}</div></a>
+                        <Link to={`/hotel/${idhotel}`}> <div className="contentHeader">{title}</div></Link>
                         <Rate className='ratting' disabled defaultValue={4} />
                         <div>
                             <LocationOnIcon /> <span>{district},{city} - Xem trên bản đồ</span>
