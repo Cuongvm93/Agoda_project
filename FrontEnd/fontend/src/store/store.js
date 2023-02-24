@@ -17,7 +17,8 @@ let searchReducer=(state=initialState,action)=>{
             
                 search:{
                     searchValue:action.payload,
-                    type:action.typeSearch
+                    type:action.typeSearch,
+                    id:action.id
                 }
             
         }
