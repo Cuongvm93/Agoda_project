@@ -59,7 +59,7 @@ export default function SearchMainBody(params) {
       }
       useEffect(()=>{
         if (inputchange.length>0) {
-        fetch("http://localhost:5000/api/v1/searchAll")
+        fetch("http://localhost:5001/api/v1/searchAll")
         .then(res=>res.json())
         .then(resutl=>{
           let newArr= new Array(...resutl[0][0],...resutl[1][0])
@@ -69,7 +69,7 @@ export default function SearchMainBody(params) {
           setSearchResult(newArr)
         })
         }else{
-          fetch("http://localhost:5000/api/v1/searchAll")
+          fetch("http://localhost:5001/api/v1/searchAll")
         .then(res=>res.json())
         .then(resutl=>{
         

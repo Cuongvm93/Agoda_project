@@ -15,6 +15,7 @@ import HomePage from './Pages/home_page/HomePage';
 import SearchPage from './Pages/SearchPage/SearchPage';
 import HotelPage from './Pages/Hotel_Page/HotelPage';
 import BookPage from './Pages/BookPage/BookPage';
+import CartPage from './Pages/CartPage/CartPage';
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path='/hotel/:idHotel' element={<HotelPage/>}></Route>
       </Routes>
-      {/* <BookPage/> */}
+      {/* <CartPage/> */}
     </div>
 
   );

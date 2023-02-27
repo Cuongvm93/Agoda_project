@@ -48,7 +48,7 @@ export default function Search(){
     }
     useEffect(()=>{
       if (inputseach.length>0) {
-        fetch("http://localhost:5000/api/v1/searchAll")
+        fetch("http://localhost:5001/api/v1/searchAll")
           .then(res=>res.json())
           .then(resutl=>{
             let newArr= new Array(...resutl[0][0],...resutl[1][0])
@@ -58,7 +58,7 @@ export default function Search(){
             setSearchResult(newArr)
           })
       }else{
-        fetch("http://localhost:5000/api/v1/searchAll")
+        fetch("http://localhost:5001/api/v1/searchAll")
           .then(res=>res.json())
           .then(resutl=>{
             setSearchResult(resutl[0][0])

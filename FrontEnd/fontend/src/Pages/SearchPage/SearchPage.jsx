@@ -32,7 +32,7 @@ function SearchPage() {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/hotel/${params.get("place")}`)
+    fetch(`http://localhost:5001/api/v1/hotel/${params.get("place")}`)
       .then((res) => res.json())
       .then((data) => {
         setDataHotel(data[0][0]);
